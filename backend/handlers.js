@@ -2,16 +2,18 @@ const path = require('path')
 const fs = require('fs')
 const querystring = require('querystring')
 
+const { client } = require('./mongodb')
+
 const getContentType = (filePath) => {
     const ext = path.extname(filePath).toLowerCase();
     switch (ext) {
         case '.html':
-            return 'text/html';
+            return 'text/html'
         case '.css':
-            return 'text/css';
-        // Add more cases as needed
-        default:
-            return null;
+            return 'text/css'
+
+            default:
+            return null
     }
 };
 
@@ -62,11 +64,19 @@ const handleFormSubmission = (req, res) => {
         body += chunk.toString()
     })
 
-    req.on('end', () => {
-        const formData = querystring.parse(body)
+    req.on('end', async () => {
+        const data = querystring.parse(body)
+
+        await client.connect()
+        db = client.db('cats')
+        collection = db.collection('messages')
+
+        collection.insertOne(data).then(() => {
+            client.close()
+        })
+
         serveFile(path.join(__dirname, '..', 'content', 'contact.html'), res)
-        console.log(`Form data received: ${JSON.stringify(formData)}`)
-    })
+    });
 }
 
 module.exports = {
