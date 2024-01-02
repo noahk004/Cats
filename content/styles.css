@@ -1,5 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Verdana', sans-serif;
+    font-size: 120%;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
@@ -23,6 +24,11 @@ nav a {
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
+    transition: color 0.3s ease; /* Adding smooth color transition */
+}
+
+nav a:hover {
+    color: #cecece; /* Change color on hover */
 }
 
 section {
@@ -31,10 +37,65 @@ section {
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px); /* Lift section on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Improved box-shadow on hover */
 }
 
 h2 {
     color: #336699;
+    h2:hover {
+        color: #254666; /* Change color on hover */
+    }
+}
+
+/* Define the base styles for the button */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #336699;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+}
+  
+/* Change background color and add shadow on hover */
+button:hover {
+    background-color: #254666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+/* Add a subtle animation on click */
+button:active {
+    transform: translateY(2px);
+}
+
+/* Define the base styles for the input */
+input, textarea {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+  
+/* Style when the input is focused */
+input:focus, textarea:focus {
+    border-color: #336699;
+    box-shadow: 0 0 5px rgba(51, 102, 153, 0.5);
 }
 
 ul {
@@ -44,4 +105,7 @@ ul {
 
 li {
     margin-bottom: 10px;
+    li:hover {
+        transform: translateX(5px); /* Move list item on hover */
+    }
 }

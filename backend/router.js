@@ -6,8 +6,6 @@ const bodyParser = require('body-parser')
 
 const { client } = require('./mongodb')
 
-const { handleFormSubmission } = require('./handlers.js')
-
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'content', 'home.html'))
 })
@@ -44,7 +42,7 @@ router.post('/submit-form', express.json(), async (req, res) => {
         });
   
         res.sendFile(path.join(__dirname, '..', 'content', 'contact.html'))
-        
+
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Internal Server Error' });
