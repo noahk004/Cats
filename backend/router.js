@@ -7,22 +7,19 @@ const bodyParser = require('body-parser')
 const { client } = require('./mongodb')
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'home.html'))
+    res.render('home')
 })
 router.get('/breeds', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'breeds.html'))
+    res.render('breeds')
 })
 router.get('/care', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'care.html'))
+    res.render('care')
 })
 router.get('/gallery', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'gallery.html'))
+    res.render('gallery')
 })
 router.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'contact.html'))
-})
-router.get('/styles.css', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'content', 'styles.css'))
+    res.render('contact')
 })
 
 router.use(bodyParser.urlencoded({ extended: true }))
