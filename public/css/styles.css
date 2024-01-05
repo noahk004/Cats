@@ -14,21 +14,42 @@ body {
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: #4d94ff;
-    padding: 10px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
+    padding: 15px;
+    justify-content: center;
     font-weight: bold;
-    transition: color 0.3s ease; /* Adding smooth color transition */
+    transition: background-color 0.3s ease; /* Adding smooth color transition */
+    
 }
 
 nav a:hover {
-    color: #cecece; /* Change color on hover */
+    background-color: #4176c5; /* Change color on hover */
+}
+
+ul.nav-center {
+    list-style-type: none;
+    justify-content: left;
+    display: flex;
+}
+
+ul.nav-right {
+    list-style-type: none;
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 30px;
+}
+
+li {
+    li:hover {
+        transform: translateX(5px); /* Move list item on hover */
+    }
 }
 
 section {
@@ -45,12 +66,6 @@ section:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Improved box-shadow on hover */
 }
 
-h2 {
-    color: #336699;
-    h2:hover {
-        color: #254666; /* Change color on hover */
-    }
-}
 
 /* Define the base styles for the button */
 button {
@@ -98,14 +113,3 @@ input:focus, textarea:focus {
     box-shadow: 0 0 5px rgba(51, 102, 153, 0.5);
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-    li:hover {
-        transform: translateX(5px); /* Move list item on hover */
-    }
-}

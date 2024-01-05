@@ -15,11 +15,20 @@ router.get('/breeds', (req, res) => {
 router.get('/care', (req, res) => {
     res.render('care')
 })
+router.get('/community', (req, res) => {
+    res.render('community')
+})
 router.get('/gallery', (req, res) => {
     res.render('gallery')
 })
 router.get('/contact', (req, res) => {
     res.render('contact')
+})
+router.get('/log-in', (req, res) => {
+    res.render('log-in')
+})
+router.get('/create-account', (req, res) => {
+    res.render('create-account')
 })
 
 router.use(bodyParser.urlencoded({ extended: true }))
@@ -38,7 +47,7 @@ router.post('/submit-form', express.json(), async (req, res) => {
             message: req.body.message,
         });
   
-        res.sendFile(path.join(__dirname, '..', 'content', 'contact.html'))
+        res.render('contact')
 
     } catch (error) {
         console.error('Error:', error);
