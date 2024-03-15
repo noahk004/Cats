@@ -5,3 +5,6 @@ List of implemented features:
 - Serves multiple pages
 - Allows user to send messages to database
 
+Currently adding:
+- User authentification
+- Discussion posts on community page
